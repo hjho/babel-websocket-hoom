@@ -1,0 +1,63 @@
+1. npm init -y
+    - package.json 생성.
+
+2. npm i nodemon -D
+    - node_modules 생성.
+    - package-lock.json 생성.
+
+3. babel.config.json 파일 생성.
+
+4. nodemon.json 파일 생성.
+
+5. src 폴더 생성.
+    - server.js 생성.
+
+6. git 생성.
+    - git init .
+
+7. npm i @babel/core @babel/cli @babel/node -D
+    - npm i @babel/preset-env -D
+    - babel이란. 자바스크립트 컴파일러.
+    - npm run dev를 실행하게되면.
+    - nodemon을 실행하여 nodemon.json > exec 실행.
+    - babel-node src/server.js를 실행할 때
+    - babel-node가 babel.config.json에서 presets 실행.
+    - server 실행.
+
+8. npm i express
+    - Node.js를 위한 빠르고 개방적인 간결한 웹 프레임워크.
+
+9. npm i pug
+    - html 관련한 구성요소. 들여쓰기로 그린다.
+
+10. Babel, Nodemon, Express을 활용하여 NodeJS 프로젝트 설정!
+
+11. views나 server를 수정 할때만 재기동.
+    - nodemon.json에서 ignore 생성.
+
+12. 기본적인 HTML에 CSS 첨가하기.
+    - link(rel="stylesheet", href="https://unpkg.com/mvp.css")
+
+13. npm i ws
+    - websocket paackage
+    - https://www.npmjs.com/package/ws
+
+14. SocketIO vs WebSocket
+    - SocketIO는 WebSocket의 부가기능이 아니다.
+    - WebSocket을 사용 못해도 통신 가능.
+
+15. npm i socket.io
+    - http://domain/socket.io/socket.io.js
+    - https://socket.io/get-started/
+    - https://socket.io/docs/v4/server-api/
+    - https://socket.io/docs/v4/client-api/
+
+15. Socket IO
+    - on : Server, Client : 리시브
+    - to : Server => Client
+    - emit : Client => Server
+
+16. npm i @socket.io/admin-ui
+    - Socket IO의 admin ui
+    - https://admin.socket.io
+    - host: http://localhost:3000/admin

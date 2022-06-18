@@ -1,0 +1,29 @@
+doctype html
+html(lang="ko")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Hoom
+        link(rel="stylesheet", href="https://unpkg.com/mvp.css")
+    body
+        header
+            h1 Hoom
+        main
+            div#main
+                form
+                    label Nick Name
+                    input(placeholder="닉네임", required, type="text")#nickname
+                    label Room Name
+                    input(placeholder="채팅방 이름", required, type="text")#roomname
+                    button Join Room
+                h4 Open Room:
+                ul
+            div#room
+                h3
+                ul 
+                form
+                    input(placeholder="message", required, type="text")#message
+                    button Send
+        script(src="/socket.io/socket.io.js")
+        script(src="/public/js/client.js")

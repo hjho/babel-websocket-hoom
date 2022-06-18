@@ -1,0 +1,53 @@
+const messageList = document.querySelector("ul");
+const nicknameForm = document.querySelector("#nickname");
+const messageForm = document.querySelector("#message");
+const socket = new WebSocket(`ws://${window.location.host}`);
+
+// Server와 연결 됐을 때.
+socket.addEventListener("open", () => {
+    console.log("Connencted to Server ✅");
+});
+
+// Server와의 연결이 끊겼을 때.
+socket.addEventListener("close", () => {
+    console.log("Disconnencted from Server ❌");
+});
+
+// Server에게 메시지를 받을 때.
+socket.addEventListener("message", (message) => {
+    const li = document.createElement("li");
+    li.innerText = message.data;
+    messageList.append(li);
+});
+
+// Server에게 메시지를 보낼 때.
+messageForm.addEventListener("submit", handleSubmitMessage);
+function handleSubmitMessage(event) {
+    event.preventDefault();
+    const input = messageForm.querySelector("input");
+    socket.send(makeMessage("message", input.value));
+
+    const li = document.createElement("li");
+    li.innerText = `Me: ${input.value}`;
+    messageList.append(li);
+
+    input.value = "";
+}
+
+// Server에게 NickName을 보낼 때.
+nicknameForm.addEventListener("submit", handleSubmitNickname);
+function handleSubmitNickname(event) {
+    event.preventDefault();
+    const input = nicknameForm.querySelector("input");
+    socket.send(makeMessage("nickname", input.value));
+    input.value = "";
+}
+
+// Server에게 메시지를 보낼때 JSON 타입으로 변경!
+// 타입 구분을 위함.
+function makeMessage(type, payload) {
+    const msg = {
+        type, payload
+    };
+    return JSON.stringify(msg);
+}
